@@ -24,10 +24,8 @@ bio.display = function() {
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedMobile);
-    $("#topContacts").append(formattedEmail);
-    $("#topContacts").append(formattedGithub);
-    $("#topContacts").append(formattedLocation);
+    $("#topContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedLocation);
+    $("#footerContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedLocation);
 
     var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     var formattedPicture = HTMLbioPic.replace("%data%", bio.biopic);
@@ -173,7 +171,7 @@ education.display = function() {
 
         var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
         $(".education-entry:last").append(formattedDates);
-        var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+        var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].school).replace("#", education.onlineCourses[i].url);
         $(".education-entry:last").append(formattedUrl);
     }
 };
