@@ -32,13 +32,9 @@ bio.display = function() {
     $("#header").append(formattedPicture);
     $("#header").append(formattedWelcome);
 
-    if (bio.skills.length > 0) {
-        $("#header").append(HTMLskillsStart);
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#header").append(HTMLskillsStart);
+    for (var i = 0; i < bio.skills.length; i++) {
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
         $("#skills").append(formattedSkill);
     }
 };
@@ -126,14 +122,14 @@ var education = {
             "name": "University of Florida",
             "degree": "Master's",
             "dates": "2016-2018",
-            "major": "ECE",
+            "major": ["ECE"],
             "location": "Gainesville"
         },
         {
             "name": "Michigan State University",
             "degree": "Bachelor's",
             "dates": "2011-2016",
-            "major": "ECE",
+            "major": ["ECE"],
             "location": "East Lansing"
         }
     ],
